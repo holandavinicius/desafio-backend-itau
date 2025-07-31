@@ -26,5 +26,11 @@ public class TransactionService {
             throw new InvalidTransactionException("Transaction date time cannot be in the future.");
         }
         transactions.add(transaction);
+        System.out.println(transactions);
     }
+
+    public void deleteTransactions(){
+        transactions.clear();
+    }
+
 }

@@ -7,10 +7,7 @@ import com.maia.vinicius.desafiobackenditau.service.TransactionService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("")
@@ -31,5 +28,11 @@ public class TransactionController {
         } catch (InvalidTransactionException e) {
             return ResponseEntity.unprocessableEntity().build(); // 422 Unprocessable Entity
         }
+    }
+
+    @DeleteMapping("/transaction")
+    public ResponseEntity<?> deleteTransactions(){
+        transactionService.deleteTransactions();
+        return ResponseEntity.ok().build();
     }
 }
