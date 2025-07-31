@@ -33,4 +33,8 @@ public class TransactionService {
         transactions.clear();
     }
 
+    public List<Transaction> getAllTransactions(){
+        return new ArrayList<>(transactions);
+    }
+
 }
